@@ -1,6 +1,6 @@
 # Instructions
 
-# Todos App - Redux
+# Todos App - useContext
 
 In this week's project, it's time to flex your muscles and build an application that pulls together all the parts of the Context API by building a to do app.
 
@@ -45,7 +45,7 @@ You're free to style your to do list however you'd like, but try to keep it simp
 
 As always, start by sketching out how your app will look and what components you'll need. Break down the UI into smaller components.
 
-Once you have your sketch, think about how the data in your store should look. What data does a task contain? Sketch it out and get it clear in your head. You'll need React for building components. No Redux packages are needed.
+Once you have your sketch, think about how the data in your store should look. What data does a task contain? Sketch it out and get it clear in your head. You'll need React for building components.
 
 When starting to write your code, try to work on the project in small chunks rather than taking on too much at once. For example, you could start by making a new slice to store your tasks and use a hardcoded list of tasks to get up and running with.
 
