@@ -22,7 +22,7 @@ In this week's project, it's time to flex your muscles and build an application 
 
 - Add a **complete all** button to set all tasks as completed. You could also use this opportunity to make your app look nice when there's no data. See [empty states UX design](https://www.toptal.com/designers/ux/empty-state-ux-design) for some ideas.
 
-- Use styled components instead of vanilla CSS to do your styling.
+- Add a button to switch dark/light mode.
 
 ### Advanced
 
@@ -78,6 +78,6 @@ Here is how you can wrap your application with the provider:
 
       export default App;
 
-Once you have your todos being listed, it's much easier to see actions you start creating working or not! A good next step is to implement some form of `addTask` action in the `tasks` reducer which will `push` a new task into the array of hardcoded tasks. You can then set up a form (keep using `useState` to control form elements and then pass the values into your actions on submit).
+Once you have your todos being listed, a good next step is to implement some form of `addTask` function which will add a new task into the array of hardcoded tasks. You can then set up a form (keep using `useState` to control form elements and then pass the values into your actions on submit).
 
 Another challenge will be giving your checkboxes and/or radio buttons a custom look. Feel free to check out [this video about custom checkboxes](https://www.youtube.com/watch?v=NfW_5Y1RZQ4) and [this video about custom radio buttons](https://www.youtube.com/watch?v=BT7FZooiqWw) to boost your knowledge!
