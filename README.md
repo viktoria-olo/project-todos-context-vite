@@ -4,7 +4,7 @@
   </a>
 </h1>
 
-# ToDo - useContext Project
+# Todo - useContext Project
 
 Replace this readme with your own information about your project.
 

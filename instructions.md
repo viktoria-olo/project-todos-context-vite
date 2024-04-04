@@ -1,38 +1,5 @@
 # Instructions
-
-# Todos App - useContext
-
-In this week's project, it's time to flex your muscles and build an application that pulls together all the parts of the Context API by building a to do app.
-
-## Requirements
-
-- Your app should list all tasks - completed or uncompleted.
-
-- You should be able to mark an uncompleted task as complete (and change it back to uncompleted).
-
-- You should be able to add and remove tasks.
-
-- Your app should show a count of either all tasks or all uncompleted tasks (or both).
-
-## Stretch goals
-
-### Intermediate
-
-- Add a timestamp for each task indicating when it was created. The timestamp should be displayed as a formatted date but stored as a raw date. You will be using the library [moment.js](https://www.npmjs.com/package/moment).
-
-- Add a **complete all** button to set all tasks as completed. You could also use this opportunity to make your app look nice when there's no data. See [empty states UX design](https://www.toptal.com/designers/ux/empty-state-ux-design) for some ideas.
-
-- Add a button to switch dark/light mode.
-
-### Advanced
-
-- Add a date input to your new task form to set a due date on a task. It could be required, or optional - it's up to you. You could then display this in the list and style it differently when a task is overdue.
-
-- Add filters to display completed/uncompleted tasks, tasks created after a given date or anything else you consider important.
-
-- Create categories/tags for tasks so they can be grouped - for example, 'Housework', 'Shopping', etc.
-
-- Create projects for tasks → A project could be a group of tasks which all need to be completed and when they are completed, the project is marked as complete.
+In this week's project, it's time to flex your muscles and build an application that pulls together all the parts of the Context API by building a todo app.
 
 ## Getting started 🤓
 
@@ -57,27 +24,50 @@ Manage State with Context: Use the useContext() hook within your components to a
 With all that set up, you can now start creating components. For example, you could make a `TodoList` component that displays the list of todos and map over them, and a `TodoForm` to add your to-do to your global state.
 
 Here is how you can wrap your application with the provider:
+```
+  // src/App.jsx
+  import React from 'react';
+  import TodoList from './TodoList';
+  import TodoForm from './TodoForm';
+  import { TodoProvider } from './TodoContext';
 
-      // src/App.jsx
-      import React from 'react';
-      import TodoList from './TodoList';
-      import TodoForm from './TodoForm';
-      import { TodoProvider } from './TodoContext';
+  const App = () => {
+    return (
+      <TodoProvider>
+        <div>
+          <h1>Todo App</h1>
+          <TodoForm />
+          <TodoList />
+        </div>
+      </TodoProvider>
+    );
+  };
 
-      const App = () => {
-        return (
-          <TodoProvider>
-            <div>
-              <h1>Todo App</h1>
-              <TodoForm />
-              <TodoList />
-            </div>
-          </TodoProvider>
-        );
-      };
+  export default App;
+```
 
-      export default App;
-
-Once you have your todos being listed, a good next step is to implement some form of `addTask` function which will add a new task into the array of hardcoded tasks. You can then set up a form (keep using `useState` to control form elements and then pass the values into your actions on submit).
+Once you have your todos listed, a good next step is to implement some form of `addTask` function which will add a new task into the array of hardcoded tasks. You can then set up a form (keep using `useState` to control form elements and then pass the values into your actions on submit).
 
 Another challenge will be giving your checkboxes and/or radio buttons a custom look. Feel free to check out [this video about custom checkboxes](https://www.youtube.com/watch?v=NfW_5Y1RZQ4) and [this video about custom radio buttons](https://www.youtube.com/watch?v=BT7FZooiqWw) to boost your knowledge!
+
+## Requirements
+
+- Your app should list all tasks - completed or uncompleted.
+- You should be able to mark an uncompleted task as complete (and change it back to uncompleted).
+- You should be able to add and remove tasks.
+- Your app should show a count of either all tasks or all uncompleted tasks (or both).
+
+## Stretch Goals
+
+### Intermediate Stretch Goals
+
+- Add a timestamp for each task indicating when it was created. The timestamp should be displayed as a formatted date but stored as a raw date. You will be using the library [moment.js](https://www.npmjs.com/package/moment).
+- Add a **complete all** button to set all tasks as completed. You could also use this opportunity to make your app look nice when there's no data. See [empty states UX design](https://www.toptal.com/designers/ux/empty-state-ux-design) for some ideas.
+- Add a button to switch dark/light mode.
+
+### Advanced Stretch Goals
+
+- Add a date input to your new task form to set a due date on a task. It could be required, or optional - it's up to you. You could then display this in the list and style it differently when a task is overdue.
+- Add filters to display completed/uncompleted tasks, tasks created after a given date or anything else you consider important.
+- Create categories/tags for tasks so they can be grouped - for example, 'Housework', 'Shopping', etc.
+- Create projects for tasks → A project could be a group of tasks which all need to be completed and when they are completed, the project is marked as complete.
