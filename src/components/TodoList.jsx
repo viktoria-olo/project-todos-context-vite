@@ -1,5 +1,15 @@
-import React from "react";
+import { useTodos } from "../contexts/TodosContext";
+import { TodoItem } from "./TodoItem";
 
 export const TodoList = () => {
-  return <div>TodoList</div>;
+  const { todos } = useTodos();
+
+  return (
+    <ul className="todos-list">
+      {todos.length === 0 && "No to dos"}
+      {todos.map((todo) => {
+        return <TodoItem todo={todo} />;
+      })}
+    </ul>
+  );
 };

@@ -4,15 +4,28 @@ const TodosContext = createContext();
 
 export const TodosProvider = ({ children }) => {
   const [todos, setTodos] = useState([]);
+  const [todoId, setTodoId] = useState(1);
 
   const addTodo = (newTodo) => {
     setTodos((currentTodos) => {
-      [...currentTodos, newTodo];
+      return [...currentTodos, { id: todoId, text: newTodo, completed: false }];
+    });
+    setTodoId(todoId + 1);
+  };
+
+  const toggleTodo = (id, completed) => {
+    setTodos((currentTodos) => {
+      return currentTodos.map((todo) => {
+        if (todo.id === id) {
+          return { ...todo, completed };
+        }
+        return todo;
+      });
     });
   };
 
   return (
-    <TodosContext.Provider value={{ todos, addTodo }}>
+    <TodosContext.Provider value={{ todos, addTodo, toggleTodo }}>
       {children}
     </TodosContext.Provider>
   );
