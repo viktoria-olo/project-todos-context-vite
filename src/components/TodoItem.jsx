@@ -5,7 +5,7 @@ export const TodoItem = ({ todo }) => {
 
   return (
     <li>
-      <label key={todo.id}>
+      <label>
         <input
           type="checkbox"
           checked={todo.completed}

@@ -5,6 +5,7 @@ const TodosContext = createContext();
 export const TodosProvider = ({ children }) => {
   const [todos, setTodos] = useState([]);
   const [todoId, setTodoId] = useState(1);
+  const [allBtnText, setAllBtnText] = useState("Complete all");
 
   const addTodo = (newTodo) => {
     setTodos((currentTodos) => {
@@ -34,13 +35,21 @@ export const TodosProvider = ({ children }) => {
     return todos.filter((todo) => todo.completed).length;
   };
 
-  const completeAll = () => {
+  const toggleCompleteAll = () => {
     setTodos((currentTodos) => {
-      return currentTodos.map((todo) => {
-        return { ...todo, completed: true };
-      });
+      // completionStatus is either true or false depending on the allBtnText
+      const completionStatus = allBtnText === "Complete all";
+      // if true: set allBtnText to "Complete none", if false: set to "Complete all"
+      setAllBtnText(completionStatus ? "Complete none" : "Complete all");
+      return currentTodos.map((todo) => ({
+        ...todo,
+        completed: completionStatus, // sets true or false depending on completedStatus
+      }));
     });
   };
+  // However, if one manually checks all the boxes, the button text does not change.
+  // Tried to solve it by checking if the length of completed todos is the same as the total todo list
+  // and if that were the case changing the button text. But have not gotten it to work yet
 
   const clearTodoList = () => {
     setTodos([]);
@@ -50,12 +59,13 @@ export const TodosProvider = ({ children }) => {
     <TodosContext.Provider
       value={{
         todos,
+        allBtnText,
         addTodo,
         toggleTodo,
         deleteTodo,
         countCompleted,
         clearTodoList,
-        completeAll,
+        toggleCompleteAll,
       }}
     >
       {children}

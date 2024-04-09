@@ -2,7 +2,13 @@ import { useTodos } from "../contexts/TodosContext";
 import { TodoItem } from "./TodoItem";
 
 export const TodoList = () => {
-  const { todos, countCompleted, clearTodoList, completeAll } = useTodos();
+  const {
+    todos,
+    countCompleted,
+    clearTodoList,
+    toggleCompleteAll,
+    allBtnText,
+  } = useTodos();
 
   const completedTodos = countCompleted();
 
@@ -11,14 +17,18 @@ export const TodoList = () => {
       <ul className="todos-list">
         {todos.length === 0 && "No to dos"}
         {todos.map((todo) => {
-          return <TodoItem todo={todo} />;
+          return <TodoItem key={todo.id} todo={todo} />;
         })}
       </ul>
       <p>Total: {todos.length} todos</p>
       <p>Completed: {completedTodos}</p>
       <p>Remaining: {todos.length - completedTodos}</p>
-      <button onClick={completeAll}>Complete all</button>
-      <button onClick={clearTodoList}>Clear all</button>
+      <button onClick={toggleCompleteAll} disabled={todos.length < 1}>
+        {allBtnText}
+      </button>
+      <button onClick={clearTodoList} disabled={todos.length < 1}>
+        Delete all
+      </button>
     </>
   );
 };
