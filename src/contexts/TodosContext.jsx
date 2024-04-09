@@ -24,8 +24,40 @@ export const TodosProvider = ({ children }) => {
     });
   };
 
+  const deleteTodo = (id) => {
+    setTodos((currentTodos) => {
+      return currentTodos.filter((todo) => todo.id !== id);
+    });
+  };
+
+  const countCompleted = () => {
+    return todos.filter((todo) => todo.completed).length;
+  };
+
+  const completeAll = () => {
+    setTodos((currentTodos) => {
+      return currentTodos.map((todo) => {
+        return { ...todo, completed: true };
+      });
+    });
+  };
+
+  const clearTodoList = () => {
+    setTodos([]);
+  };
+
   return (
-    <TodosContext.Provider value={{ todos, addTodo, toggleTodo }}>
+    <TodosContext.Provider
+      value={{
+        todos,
+        addTodo,
+        toggleTodo,
+        deleteTodo,
+        countCompleted,
+        clearTodoList,
+        completeAll,
+      }}
+    >
       {children}
     </TodosContext.Provider>
   );

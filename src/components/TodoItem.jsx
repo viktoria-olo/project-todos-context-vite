@@ -1,7 +1,7 @@
 import { useTodos } from "../contexts/TodosContext";
 
 export const TodoItem = ({ todo }) => {
-  const { toggleTodo } = useTodos();
+  const { toggleTodo, deleteTodo } = useTodos();
 
   return (
     <li>
@@ -13,6 +13,7 @@ export const TodoItem = ({ todo }) => {
         />
         {todo.text}
       </label>
+      <button onClick={() => deleteTodo(todo.id)}>Delete</button>
     </li>
   );
 };
