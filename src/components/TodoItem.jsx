@@ -5,7 +5,7 @@ export const TodoItem = ({ todo }) => {
   const { toggleTodo, deleteTodo } = useTodos();
 
   return (
-    <li className="checkbox-container">
+    <li>
       <label>
         <input
           type="checkbox"
