@@ -6,7 +6,6 @@ export const NewTodoForm = () => {
   const [newTask, setNewTask] = useState("");
 
   const handleSubmit = (event) => {
-    if (newTask === "") return;
     event.preventDefault();
     addTodo(newTask);
     setNewTask("");
@@ -22,7 +21,9 @@ export const NewTodoForm = () => {
           onChange={(event) => setNewTask(event.target.value)}
         />
       </label>
-      <button type="submit">Add new to do</button>
+      <button type="submit" disabled={newTask === ""}>
+        Add new to do
+      </button>
     </form>
   );
 };

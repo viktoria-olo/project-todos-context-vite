@@ -6,8 +6,10 @@ export const App = () => {
   return (
     <>
       <TodosProvider>
-        <NewTodoForm />
-        <TodoList />
+        <div className="content-container">
+          <NewTodoForm />
+          <TodoList />
+        </div>
       </TodosProvider>
     </>
   );
