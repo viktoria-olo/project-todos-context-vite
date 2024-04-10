@@ -1,1 +1,52 @@
+.todos-list {
+  display: flex;
+  margin: 40px 5px;
+}
 
+ul {
+  display: flex;
+  flex-direction: column;
+}
+
+.icon-box {
+  display: flex;
+  justify-content: center;
+  margin: 40px 5px;
+}
+
+.icon-box img {
+  height: 80px;
+  width: 80px;
+}
+
+p {
+  font-size: 18px;
+}
+
+.task-counter-box {
+  display: flex;
+  gap: 15px;
+  max-width: 300px;
+}
+
+.button-box {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+}
+
+.button-box button {
+  padding: 10px;
+  border-radius: 10px;
+  border: none;
+  align-self: flex-end;
+  background-color: white;
+  font-size: 16px;
+  margin-top: 25px;
+}
+
+@media (min-width: 576px) {
+  .todos-list {
+    margin: 40px 15px;
+  }
+}

@@ -1,12 +1,12 @@
 import { NewTodoForm } from "./NewTodoForm";
 import { TodoList } from "./TodoList";
-
+import "./Home.css";
 
 export const Home = () => {
   return (
-    <div className="content-container">
+    <section className="to-do-box">
       <NewTodoForm />
       <TodoList />
-    </div>
+    </section>
   );
-}
+};

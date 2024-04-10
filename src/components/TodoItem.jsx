@@ -6,14 +6,13 @@ export const TodoItem = ({ todo }) => {
 
   return (
     <li>
-      <label>
-        <input
-          type="checkbox"
-          checked={todo.completed}
-          onChange={(event) => toggleTodo(todo.id, event.target.checked)}
-        />
-        {todo.text}
-      </label>
+      <input
+        id={todo.id}
+        type="checkbox"
+        checked={todo.completed}
+        onChange={(event) => toggleTodo(todo.id, event.target.checked)}
+      />
+      <label htmlFor={todo.id}>{todo.text}</label>
 
       <button onClick={() => deleteTodo(todo.id)} className="delete-button">
         Delete

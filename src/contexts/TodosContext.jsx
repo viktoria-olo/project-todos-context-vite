@@ -75,8 +75,7 @@ export const TodosProvider = ({ children }) => {
         clearTodoList,
         toggleCompleteAll,
         updateButtonStatus,
-      }}
-    >
+      }}>
       {children}
     </TodosContext.Provider>
   );

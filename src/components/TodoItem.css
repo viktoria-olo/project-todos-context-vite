@@ -5,14 +5,47 @@ li {
   margin: 10px 0;
 }
 
-li input {
-  margin-right: 50px;
-}
-
 .delete-button {
   padding: 5px;
   border-radius: 5px;
   border: none;
   background-color: rgba(169, 38, 5);
   color: #fff;
+  font-size: 14px;
+}
+
+li label {
+  display: inline-block;
+  cursor: pointer;
+  position: relative;
+  padding-left: 35px;
+  font-size: 18px;
+}
+
+li label:before {
+  content: "";
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  top: 0;
+  right: 0;
+  align-self: center;
+  background-color: #fff;
+  box-shadow: inset 0px 2px 3px 0px rgba(0, 0, 0, 0.3), 0px 1px 0px 0px rgba(255, 255, 255, 0.8);
+  border-radius: 3px;
+}
+
+input[type="checkbox"] {
+  display: none;
+}
+
+input[type="checkbox"]:checked + label:before {
+  content: "\2713";
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+  font-size: 16px;
+  color: darkgreen;
+  text-align: center;
 }

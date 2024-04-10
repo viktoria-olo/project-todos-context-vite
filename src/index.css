@@ -1,19 +1,11 @@
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
-
 * {
+  margin: 0;
   padding: 0;
+  box-sizing: border-box;
+  font-family: "Architects Daughter", "Indie Flower", sans-serif;
 }
 
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans",
-    "Droid Sans", "Helvetica Neue", sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
   background-image: url("assets/background-72250_1280.jpg");
   display: flex;
   flex-direction: column;
