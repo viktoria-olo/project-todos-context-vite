@@ -1,16 +1,10 @@
 import { useEffect } from "react";
 import { useTodos } from "../contexts/TodosContext";
 import { TodoItem } from "./TodoItem";
+import "./TodoList.css";
 
 export const TodoList = () => {
-  const {
-    todos,
-    countCompleted,
-    clearTodoList,
-    toggleCompleteAll,
-    allBtnText,
-    updateButtonStatus,
-  } = useTodos();
+  const { todos, countCompleted, clearTodoList, toggleCompleteAll, allBtnText, updateButtonStatus } = useTodos();
 
   const completedTodos = countCompleted();
   useEffect(() => {

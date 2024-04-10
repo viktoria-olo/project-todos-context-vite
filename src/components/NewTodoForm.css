@@ -1,0 +1,26 @@
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+form label {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
+
+input[type="text"] {
+  width: 300px;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid green;
+}
+
+button[type="submit"] {
+  padding: 10px;
+  border-radius: 10px;
+  border: none;
+  width: 120px;
+  align-self: flex-end;
+  background-color: white;
+}
