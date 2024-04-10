@@ -14,7 +14,7 @@ export const NewTodoForm = () => {
   return (
     <form onSubmit={handleSubmit}>
       <label>
-        New to do:
+        New task:
         <input
           type="text"
           value={newTask}
@@ -22,7 +22,7 @@ export const NewTodoForm = () => {
         />
       </label>
       <button type="submit" disabled={newTask === ""}>
-        Add new to do
+        Add new task
       </button>
     </form>
   );

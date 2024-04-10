@@ -32,7 +32,18 @@ export const TodosProvider = ({ children }) => {
   };
 
   const countCompleted = () => {
-    return todos.filter((todo) => todo.completed).length;
+    const completedTodos = todos.filter((todo) => todo.completed).length;
+    return completedTodos;
+  };
+
+  const updateButtonStatus = () => {
+    const completedTodos = countCompleted();
+
+    if (completedTodos === todos.length) {
+      setAllBtnText("Complete none");
+    } else {
+      setAllBtnText("Complete all");
+    }
   };
 
   const toggleCompleteAll = () => {
@@ -47,9 +58,6 @@ export const TodosProvider = ({ children }) => {
       }));
     });
   };
-  // However, if one manually checks all the boxes, the button text does not change.
-  // Tried to solve it by checking if the length of completed todos is the same as the total todo list
-  // and if that were the case changing the button text. But have not gotten it to work yet
 
   const clearTodoList = () => {
     setTodos([]);
@@ -66,6 +74,7 @@ export const TodosProvider = ({ children }) => {
         countCompleted,
         clearTodoList,
         toggleCompleteAll,
+        updateButtonStatus,
       }}
     >
       {children}

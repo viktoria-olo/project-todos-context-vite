@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { useTodos } from "../contexts/TodosContext";
 import { TodoItem } from "./TodoItem";
 
@@ -8,20 +9,24 @@ export const TodoList = () => {
     clearTodoList,
     toggleCompleteAll,
     allBtnText,
+    updateButtonStatus,
   } = useTodos();
 
   const completedTodos = countCompleted();
+  useEffect(() => {
+    updateButtonStatus();
+  }, [todos]);
 
   return (
     <div className="list-container">
       <ul className="todos-list">
-        {todos.length === 0 && "No to dos"}
+        {todos.length === 0 && "No tasks"}
         {todos.map((todo) => {
           return <TodoItem key={todo.id} todo={todo} />;
         })}
       </ul>
       <div className="totals-div">
-        <p>Total: {todos.length} todos</p>
+        <p>Total: {todos.length} tasks</p>
         <p>Completed: {completedTodos}</p>
         <p>Remaining: {todos.length - completedTodos}</p>
       </div>

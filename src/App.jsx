@@ -1,15 +1,11 @@
-import { NewTodoForm } from "./components/NewTodoForm";
-import { TodoList } from "./components/TodoList";
+import { Home } from "./components/Home";
 import { TodosProvider } from "./contexts/TodosContext";
 
 export const App = () => {
   return (
     <>
       <TodosProvider>
-        <div className="content-container">
-          <NewTodoForm />
-          <TodoList />
-        </div>
+        <Home />
       </TodosProvider>
     </>
   );
