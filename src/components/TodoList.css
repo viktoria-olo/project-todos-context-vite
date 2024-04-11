@@ -1,0 +1,56 @@
+.todos-list {
+  margin-top: 22px;
+  padding: 0;
+  font-size: 20px;
+  line-height: 30px;
+  list-style: none;
+}
+
+.button-box {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+}
+
+.button-box button {
+  padding: 0 10px;
+  align-self: flex-end;
+  background-color: rgba(40, 146, 215, 0.2);
+  border: 1px solid rgba(40, 146, 215, 0.4);
+  border-radius: 4px;
+  font-size: 16px;
+  margin-top: 25px;
+}
+
+.task-counter-box {
+  display: flex;
+  gap: 15px;
+  max-width: 300px;
+}
+
+.totals-div {
+  margin-top: 30px;
+}
+
+.icon-box {
+  display: flex;
+  justify-content: center;
+  margin: 40px 5px;
+}
+
+.icon-box img {
+  height: 90px;
+  width: 90px;
+}
+
+@media (min-width: 576px) {
+  .button-box button {
+    padding: 0 20px;
+  }
+}
+
+@media (min-width: 992px) {
+  .button-box button {
+    padding: 0 40px;
+  }
+}
