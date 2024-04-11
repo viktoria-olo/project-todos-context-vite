@@ -8,8 +8,11 @@ export const TodoList = () => {
   const { todos, countCompleted, clearTodoList, toggleCompleteAll, allBtnText, updateButtonStatus } = useTodos();
 
   const completedTodos = countCompleted();
+
   useEffect(() => {
     updateButtonStatus();
+    // Add tasks to localStorage
+    localStorage.setItem("tasks", JSON.stringify(todos));
   }, [todos]);
 
   return (

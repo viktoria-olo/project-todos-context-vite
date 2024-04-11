@@ -4,6 +4,7 @@
   font-size: 20px;
   line-height: 30px;
   list-style: none;
+  word-break: break-word;
 }
 
 .button-box {

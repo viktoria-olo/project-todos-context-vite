@@ -1,17 +1,23 @@
-import { useState, createContext, useContext } from "react";
+import { useState, createContext, useContext, useEffect } from "react";
 
 const TodosContext = createContext();
 
 export const TodosProvider = ({ children }) => {
-  const [todos, setTodos] = useState([]);
-  const [todoId, setTodoId] = useState(1);
+  const [todos, setTodos] = useState(() => {
+    // Check if there are any tasks in localStorage
+    const storedTasks = localStorage.getItem("tasks");
+    if (storedTasks === null) return [];
+    return JSON.parse(storedTasks);
+  });
+
+  const [todoId, setTodoId] = useState(crypto.randomUUID()); // Get a random inumber
   const [allBtnText, setAllBtnText] = useState("Complete all");
 
   const addTodo = (newTodo) => {
     setTodos((currentTodos) => {
       return [...currentTodos, { id: todoId, text: newTodo, completed: false }];
     });
-    setTodoId(todoId + 1);
+    setTodoId(crypto.randomUUID());
   };
 
   const toggleTodo = (id, completed) => {
@@ -38,7 +44,6 @@ export const TodosProvider = ({ children }) => {
 
   const updateButtonStatus = () => {
     const completedTodos = countCompleted();
-
     if (completedTodos === todos.length) {
       setAllBtnText("Complete none");
     } else {
@@ -75,8 +80,7 @@ export const TodosProvider = ({ children }) => {
         clearTodoList,
         toggleCompleteAll,
         updateButtonStatus,
-      }}
-    >
+      }}>
       {children}
     </TodosContext.Provider>
   );
