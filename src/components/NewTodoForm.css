@@ -1,0 +1,32 @@
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+form label {
+  display: flex;
+  flex-direction: column;
+  font-size: 20px;
+}
+
+input[type="text"] {
+  padding: 5px;
+  font-size: 16px;
+}
+
+button[type="submit"] {
+  margin: 10px 0;
+  font-size: 18px;
+  background-color: rgba(40, 146, 215, 0.2);
+  border: 1px solid rgba(40, 146, 215, 0.4);
+  border-radius: 4px;
+}
+
+@media (min-width: 992px) {
+  button[type="submit"] {
+    width: 250px;
+    align-self: flex-end;
+  }
+}
