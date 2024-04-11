@@ -13,6 +13,7 @@ form label {
 
 input[type="text"] {
   padding: 5px;
+  font-size: 16px;
 }
 
 button[type="submit"] {
