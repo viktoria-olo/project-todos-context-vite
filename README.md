@@ -9,3 +9,5 @@ We started out by laying out the design and structure of the components in FigJa
 If we had more time we would have tried out more of the stretch goals, like a time stamp.
 
 ### View it live
+
+https://stirring-douhua-d9742e.netlify.app/
