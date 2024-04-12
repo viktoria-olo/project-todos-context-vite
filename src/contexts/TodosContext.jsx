@@ -10,7 +10,7 @@ export const TodosProvider = ({ children }) => {
     return JSON.parse(storedTasks);
   });
 
-  const [todoId, setTodoId] = useState(crypto.randomUUID()); // Get a random inumber
+  const [todoId, setTodoId] = useState(crypto.randomUUID()); // Get a random id number
   const [allBtnText, setAllBtnText] = useState("Complete all");
 
   const addTodo = (newTodo) => {
@@ -80,7 +80,8 @@ export const TodosProvider = ({ children }) => {
         clearTodoList,
         toggleCompleteAll,
         updateButtonStatus,
-      }}>
+      }}
+    >
       {children}
     </TodosContext.Provider>
   );
